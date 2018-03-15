@@ -3,14 +3,3 @@ node_modules
 notes.txt
 dist
 .idea
-/normalize/node_modules
-/normalize/seed
-/normalize/src
-/normalize/typings
-/normalize/.env
-/normalize/.gitignore
-/normalize/gulpfile.js
-/normalize/package.json
-/normalize/README.md
-/normalize/tsconfig.json
-/normalize/typings.json
