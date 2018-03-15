@@ -1,0 +1,61 @@
+/// <reference types="express" />
+import { Request, Response, NextFunction } from 'express';
+import { PSQLWrapper } from '../wrapper/postgres.wrapper';
+export declare class BaseController {
+    options: any;
+    name: string;
+    model: any;
+    api: any;
+    error: Array<String>;
+    psql: PSQLWrapper;
+    constructor(options: any, name: string, model: any, api: any);
+    hash(): string;
+    random(): string;
+    getToken(req: any): any;
+    getRequestUser(token: string, cb: Function): void;
+    requestInterceptor: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+    findByIdInterceptor: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+    log(req: any, recordID: any, method: any): Promise<void>;
+    checkForUpdates(subscriberID: any, cb: Function): void;
+    createTable: (req: Request, res: Response, next: NextFunction) => Promise<{}>;
+    getAll: (req: Request, res: Response, next: NextFunction) => Promise<{}>;
+    findById: (req: Request, res: Response, next: NextFunction) => Promise<any>;
+    bulkInsert: (req: Request, res: Response, next: NextFunction) => Promise<{}>;
+    insert: (req: Request, res: Response, next: NextFunction) => Promise<{}>;
+    getSecretFields(schema: any): any;
+    getAllSecretFields(): any[];
+    update: (req: Request, res: Response, next: NextFunction) => Promise<{}>;
+    remove: (req: Request, res: Response, next: NextFunction) => Promise<{}>;
+    removeWhere: (req: Request, res: Response, next: NextFunction) => Promise<{}>;
+    updateSet: (req: Request, res: Response, next: NextFunction) => Promise<{}>;
+    getTouchByUser(req: Request, byProp: any): any;
+    setTouchByUser(req: Request, type: string): Request;
+    poll(subscriberID: string, subscription: string, req: Request, res: Response, next: NextFunction): void;
+    removeSessClient(subscriberID: any): void;
+    saveSession(subscriberID: any, payload: any, cb?: Function): void;
+    stopSubscription(subscriptionID: any, subscription: string, res?: Response, next?: NextFunction, cb?: Function): void;
+    unsubscribe: (req: Request, res: Response, next: NextFunction) => void;
+    subscribe: (req: Request, res: Response, next: NextFunction) => void;
+    get: (req: Request, res: Response, next: NextFunction) => Promise<{}>;
+    getTotalCount: (req: Request, res: Response, next: NextFunction) => Promise<{}>;
+    csvExport: (req: Request, res: Response, next: NextFunction) => Promise<{}>;
+    getJSONModels(props: any, models: any): any;
+    JSONToRow(data: any, prev?: any): any;
+    escape(value: any): any;
+    listAllTables: (req: Request, res: Response, next: NextFunction) => void;
+    listAllProps: (req: Request, res: Response, next: NextFunction) => void;
+    query: (query: string, cb?: Function) => Promise<void>;
+    getError: () => String[];
+    sendError: (status: number, error: any) => {
+        errorMessage: any;
+        statusCode: number;
+    };
+    send: (status: number, data: any, count?: number, totalRowCount?: number, message?: string) => {
+        data: any;
+        statusCode: number;
+    };
+    sendAsPromise(status: number, data: any): Promise<{}>;
+    toPromise(func: any, scope?: any): any;
+    setError: (error: string) => void;
+    static convertToUTCDate(date: any): any;
+}
