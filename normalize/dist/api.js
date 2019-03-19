@@ -35,8 +35,8 @@ const Strategy = require('passport-local');
 const expressJWT = require('express-jwt');
 const bcrypt = require('bcrypt');
 // environment variable
-const envFile = require('../.env');
-const dotEnv = require('dotenv').load(envFile);
+// const envFile = require('../.env');
+// const dotEnv = require('dotenv').load(envFile);
 const helmet = require('helmet');
 const compression = require("compression");
 const cluster = require('cluster');
