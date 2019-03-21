@@ -9,8 +9,7 @@ const rimraf = require('rimraf');
 const tsProject = ts.createProject('tsconfig.json');
 
 gulp.task('scripts', () => {
-  const tsResult = tsProject.src()
-    .pipe(tsProject());
+  const tsResult = tsProject.src().pipe(tsProject());
   return merge2([
     tsResult.js.pipe(gulp.dest('dist')),
     tsResult.dts.pipe(gulp.dest('dist/definitions'))
@@ -35,7 +34,7 @@ gulp.task('delete-dist', (cb) => {
 });
 
 gulp.task('clean', (cb) => {
-    rimraf('dist', cb);
+  rimraf('dist', cb);
 });
 
 gulp.task("build", (cb) => {
