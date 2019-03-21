@@ -3,7 +3,7 @@ const dotEnv = require('dotenv').load(envFile);
 const Normalize = require('../normalize-edu/norm/normalize').Normalize;
 const models = require('./models');
 
-const n = new Normalize({
+const options = {
   port: process.env.PORT,
   cluster: true,
   seedDir: '../seed',
@@ -17,7 +17,9 @@ const n = new Normalize({
   dbPort: process.env.DB_PORT,
   corsWhitelist: [process.env.CLIENT_URL],
   // debug: true
-}, models);
+};
+
+const n = new Normalize(options, models);
 
 n.ready(async (norm: any) => {
 
