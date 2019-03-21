@@ -6,6 +6,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+const envFile = require('../.env');
+const dotEnv = require('dotenv').load(envFile);
 const Normalize = require('../normalize-edu/norm/normalize').Normalize;
 const models = require('./models');
 const n = new Normalize({
@@ -27,7 +29,6 @@ n.ready((norm) => __awaiter(this, void 0, void 0, function* () {
     const promises = mKeys && mKeys.length > 0 ? mKeys.map((key, index) => {
         const m = new models[key](norm);
         const params = [...m.model];
-        // import a single model
         return norm.importModel(key, params[0], params[1] != null ? params[1] : 'N/A', params[2] != null && params[2].length > 0 ? params[2] : []);
     }) : [];
     yield Promise.all(promises);

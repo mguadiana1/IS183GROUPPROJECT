@@ -1,3 +1,5 @@
+const envFile = require('../.env');
+const dotEnv = require('dotenv').load(envFile);
 const Normalize = require('../normalize-edu/norm/normalize').Normalize;
 const models = require('./models');
 
@@ -23,7 +25,6 @@ n.ready(async (norm: any) => {
   const promises = mKeys && mKeys.length > 0 ? mKeys.map((key: any, index: number) => {
     const m = new models[key](norm);
     const params = [...m.model];
-    // import a single model
     return norm.importModel(key, params[0], params[1] != null ? params[1] : 'N/A', params[2] != null && params[2].length > 0 ? params[2] : []);
   }) : [];
   await Promise.all(promises);
