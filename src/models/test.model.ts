@@ -23,7 +23,7 @@ export class Test {
         return this._model;
     }
 
-    testFunc = (model: any) => {
+    testFunc(model: any) {
         return (req: Request, res: Response, next: NextFunction) => {
             let payload = {
                 body: {

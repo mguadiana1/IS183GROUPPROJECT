@@ -4,5 +4,5 @@ export declare class Test {
     _model: any;
     constructor(norm: any);
     model: any;
-    testFunc: (model: any) => (req: Request, res: Response, next: NextFunction) => void;
+    testFunc(model: any): (req: Request, res: Response, next: NextFunction) => void;
 }
