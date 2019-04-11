@@ -1,0 +1,2 @@
+Description: Retrieve all the available books from the database
+Endpoint: 
