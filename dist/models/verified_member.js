@@ -8,101 +8,88 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class Student {
+class Verified_member {
     constructor(norm) {
         this.model = [{
                 id: { type: Number, key: 'primary' },
-                student_first_name: { type: String, maxlength: 24 },
-                student_last_name: { type: String, maxlength: 24 },
-                street: { type: String, maxlength: 24 },
-                state: { type: String, maxlength: 24 },
-                city: { type: String, maxlength: 24 },
-                zipcode: { type: String, maxlength: 24 },
-                university: { type: String, maxlength: 24 },
+                member_status: { type: Boolean, maxlength: 1 },
                 user_id: {
                     type: Number,
                     key: 'foreign',
                     references: { table: 'User', foreignKey: 'id' },
                     onDelete: 'cascade',
                     onUpdate: 'cascade'
-                },
-                verified_member_id: {
-                    type: Number,
-                    key: 'foreign',
-                    references: { table: 'Verified_member', foreignKey: 'id' },
-                    onDelete: 'cascade',
-                    onUpdate: 'cascade'
-                },
+                }
             }, 'A table to store student info',
             [
                 {
-                    route: '/get-all-student',
+                    route: '/get-all-verified_member',
                     method: 'POST',
-                    callback: this.getALLStudent,
+                    callback: this.getALLVerified_member,
                     requireToken: true,
                 },
                 {
-                    route: '/get-student-by-id/:id',
+                    route: '/get-verified_member-by-id/:id',
                     method: 'POST',
-                    callback: this.getStudentById,
+                    callback: this.getVerified_memberById,
                     requireToken: true,
                 },
                 {
-                    route: '/create-student',
+                    route: '/create-verified_member',
                     method: 'POST',
-                    callback: this.createStudent,
+                    callback: this.createVerified_member,
                     requireToken: true,
                 },
                 {
-                    route: '/update-student/id/:id',
+                    route: '/update-verified_member/id/:id',
                     method: 'PUT',
-                    callback: this.updateStudent,
+                    callback: this.updateVerified_member,
                     requireToken: true,
                 },
                 {
                     route: '/delete/id/:id',
                     method: 'DELETE',
-                    callback: this.deleteStudent,
+                    callback: this.deleteVerified_member,
                     requireToken: true,
                 }
             ]];
     }
-    updateStudent(model) {
+    updateVerified_member(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('reg.body==>', req.body);
-            let studentCtrl = model.controller;
-            let resp = yield studentCtrl.update(req, null, null);
+            let Verified_memberCtrl = model.controller;
+            let resp = yield Verified_memberCtrl.update(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
-    deleteStudent(model) {
+    deleteVerified_member(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('reg.body==>', req.body);
-            let studentCtrl = model.controller;
-            let resp = yield studentCtrl.remove(req, null, null);
+            let Verified_memberCtrl = model.controller;
+            let resp = yield Verified_memberCtrl.remove(req, null, null);
             console.log('resp from delete', resp);
             res.json({ message: 'Success', resp });
         });
     }
-    createStudent(model) {
+    createVerified_member(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('reg.body==>', req.body);
-            let studentCtrl = model.controller;
-            let resp = yield studentCtrl.insert(req, null, null);
+            let Verified_memberCtrl = model.controller;
+            let resp = yield Verified_memberCtrl.insert(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
-    getALLStudent(model) {
+    getALLVerified_member(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"]
             };
-            let studentCtrl = model.controller;
-            let resp = yield studentCtrl.get(req, null, null);
+            let Verified_memberCtrl = model.controller;
+            let resp = yield Verified_memberCtrl.get(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
-    getStudentById(model) {
+    getVerified_memberById(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"],
@@ -110,8 +97,8 @@ class Student {
                     id: req.params.id
                 }
             };
-            let studentCtrl = model.controller;
-            let resp = yield studentCtrl.get(req, null, null);
+            let Verified_memberCtrl = model.controller;
+            let resp = yield Verified_memberCtrl.get(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
@@ -122,4 +109,4 @@ class Student {
         return this._model;
     }
 }
-exports.Student = Student;
+exports.Verified_member = Verified_member;

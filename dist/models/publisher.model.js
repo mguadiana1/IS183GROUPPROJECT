@@ -8,19 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class publisher {
+class Publisher {
     constructor(norm) {
         this.model = [{
                 id: { type: Number, key: 'primary' },
-                title: { type: String, maxlength: 24 },
-                author: { type: String, maxlength: 24 },
                 publisher: { type: String, maxlength: 24 },
-                price: { type: String, maxlength: 24 },
-                isbn: { type: String, maxlength: 24 },
-                cover: { type: String, maxlength: 24 },
-                publication: { type: String, maxlength: 24 },
-                category: { type: String, maxlength: 24 },
-                url: { type: String, maxlength: 24 },
+                country: { type: String, maxlength: 24 },
                 user_id: {
                     type: Number,
                     key: 'foreign',
@@ -31,73 +24,73 @@ class publisher {
             }, 'A table to store book info',
             [
                 {
-                    route: '/get-all-book',
+                    route: '/get-all-publisher',
                     method: 'POST',
-                    callback: this.getALLBook,
+                    callback: this.getALLPublisher,
                     requireToken: true,
                 },
                 {
-                    route: '/get-book-by-id/:id',
+                    route: '/get-publisher-by-id/:id',
                     method: 'POST',
-                    callback: this.getBookById,
+                    callback: this.getPublisherById,
                     requireToken: true,
                 },
                 {
-                    route: '/create-book',
+                    route: '/create-publisher',
                     method: 'POST',
-                    callback: this.createBook,
+                    callback: this.createPublisher,
                     requireToken: true,
                 },
                 {
-                    route: '/update-book/id/:id',
+                    route: '/update-publisher/id/:id',
                     method: 'PUT',
-                    callback: this.updateBook,
+                    callback: this.updatePublisher,
                     requireToken: true,
                 },
                 {
                     route: '/delete/id/:id',
                     method: 'DELETE',
-                    callback: this.deleteBook,
+                    callback: this.deletePublisher,
                     requireToken: true,
                 }
             ]];
     }
-    updateBook(model) {
+    updatePublisher(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('reg.body==>', req.body);
-            let bookCtrl = model.controller;
-            let resp = yield bookCtrl.update(req, null, null);
+            let publisherCtrl = model.controller;
+            let resp = yield publisherCtrl.update(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
-    deleteBook(model) {
+    deletePublisher(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('reg.body==>', req.body);
-            let bookCtrl = model.controller;
-            let resp = yield bookCtrl.remove(req, null, null);
+            let publisherCtrl = model.controller;
+            let resp = yield publisherCtrl.remove(req, null, null);
             console.log('resp from delete', resp);
             res.json({ message: 'Success', resp });
         });
     }
-    createBook(model) {
+    createPublisher(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('reg.body==>', req.body);
-            let bookCtrl = model.controller;
-            let resp = yield bookCtrl.insert(req, null, null);
+            let publisherCtrl = model.controller;
+            let resp = yield publisherCtrl.insert(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
-    getALLBook(model) {
+    getALLPublisher(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"]
             };
-            let bookCtrl = model.controller;
-            let resp = yield bookCtrl.get(req, null, null);
+            let publisherCtrl = model.controller;
+            let resp = yield publisherCtrl.get(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
-    getBookById(model) {
+    getPublisherById(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"],
@@ -105,8 +98,8 @@ class publisher {
                     id: req.params.id
                 }
             };
-            let bookCtrl = model.controller;
-            let resp = yield bookCtrl.get(req, null, null);
+            let publisherCtrl = model.controller;
+            let resp = yield publisherCtrl.get(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
@@ -117,4 +110,4 @@ class publisher {
         return this._model;
     }
 }
-exports.publisher = publisher;
+exports.Publisher = Publisher;

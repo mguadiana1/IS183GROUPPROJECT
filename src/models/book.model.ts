@@ -1,17 +1,20 @@
 import { Request, Response, NextFunction } from 'express';
+import { isDate } from 'util';
 export class Book {
   _model: any;
   constructor(norm: any) {
     this.model = [{
       id: { type: Number, key: 'primary' },
-      title: { type: String, maxlength: 24 },
-      author: { type: String, maxlength: 24 },
-      publisher: { type: String, maxlength: 24 },
+      title: { type: String, maxlength: 100 },
       price: { type: String, maxlength: 24 },
       isbn: { type: String, maxlength: 24 },
-      cover: { type: String, maxlength: 24 },
-      publication: { type: String, maxlength: 24 },
-      image: { type: File },
+      edition:{type: String, maxlength: 24},
+      description:{type: String, maxlength: 1000},
+      category: {type: String, maxlength:24},
+      condition: {type: String, maxlength:24},
+      cover: { type: String, maxlength: 1000 },
+      created_date: {type: new Date()},
+      
      
       
       user_id: {
@@ -21,12 +24,26 @@ export class Book {
         onDelete: 'cascade',
         onUpdate: 'cascade'
       },
+      author_id: {
+        type: Number,
+        key: 'foreign',
+        references: { table: 'Author', foreignKey: 'id' },
+        onDelete: 'set null',
+        onUpdate: 'cascade'
+      },
+      publisher_id: {
+        type: Number,
+        key: 'foreign',
+        references: { table: 'Publisher', foreignKey: 'id' },
+        onDelete: 'set null',
+        onUpdate: 'cascade'
+      },
     }, 'A table to store book info',
     [
       {
-        route: '/get-all-book',
+        route: '/get-all-books',
         method: 'POST',
-        callback: this.getALLBook,
+        callback: this.getALLBooks,
         requireToken: true,
       },
       {
@@ -82,7 +99,7 @@ export class Book {
     }
   }
   
-  getALLBook(model: any) {
+  getALLBooks(model: any) {
     return async (req: Request, res: Response, next: NextFunction) => {
       req.body = {
         get: ["*"]

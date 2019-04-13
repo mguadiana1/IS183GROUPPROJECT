@@ -1,10 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
-export class author {
+export class Author {
     _model: any;
     constructor(norm: any) {
       this.model = [{
         id: { type: Number, key: 'primary' },
-        author_name: { type: String, maxlength: 24 },
+        author: { type: String, maxlength: 24 },
+        
         user_id: {
           type: Number,
           key: 'foreign',
@@ -12,6 +13,13 @@ export class author {
           onDelete: 'cascade',
           onUpdate: 'cascade'
         },
+        // book_id: {
+          // type: Number,
+          // key: 'foreign',
+          // references: { table: 'Book', foreignKey: 'id' },
+          // onDelete: 'null',
+          // onUpdate: 'cascade'
+        // },
       }, 'A table to store authors', 
       [
     {
