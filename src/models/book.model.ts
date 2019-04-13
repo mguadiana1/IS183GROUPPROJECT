@@ -41,9 +41,9 @@ export class Book {
     }, 'A table to store book info',
     [
       {
-        route: '/get-all-book',
+        route: '/get-all-books',
         method: 'POST',
-        callback: this.getALLBook,
+        callback: this.getALLBooks,
         requireToken: true,
       },
       {
@@ -99,7 +99,7 @@ export class Book {
     }
   }
   
-  getALLBook(model: any) {
+  getALLBooks(model: any) {
     return async (req: Request, res: Response, next: NextFunction) => {
       req.body = {
         get: ["*"]

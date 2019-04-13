@@ -45,9 +45,9 @@ class Book {
             }, 'A table to store book info',
             [
                 {
-                    route: '/get-all-book',
+                    route: '/get-all-books',
                     method: 'POST',
-                    callback: this.getALLBook,
+                    callback: this.getALLBooks,
                     requireToken: true,
                 },
                 {
@@ -101,7 +101,7 @@ class Book {
             res.json({ message: 'Success', resp });
         });
     }
-    getALLBook(model) {
+    getALLBooks(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"]

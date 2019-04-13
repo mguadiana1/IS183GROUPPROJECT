@@ -13,7 +13,7 @@ class Student {
         this.model = [{
                 id: { type: Number, key: 'primary' },
                 student_first_name: { type: String, maxlength: 24 },
-                student_last_Name: { type: String, maxlength: 24 },
+                student_last_name: { type: String, maxlength: 24 },
                 street: { type: String, maxlength: 24 },
                 state: { type: String, maxlength: 24 },
                 city: { type: String, maxlength: 24 },
