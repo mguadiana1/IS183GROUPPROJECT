@@ -1,0 +1,176 @@
+Verification and documentation for making updates to records for the author, book, publisher, student, and verified_member models
+BOOK MODEL
+Description: Update a book record
+Endpoint: http://localhost:3002/api/v1/book/update-book/id/:id
+Method: PUT
+Params: id - 1
+Request Payload:
+{
+"price": "$300.00"
+	
+}
+
+
+
+RESPONSE
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "title": "Business Statistics In Practice",
+            "price": "$300.00",
+            "isbn": "1259549461",
+            "edition": "8th edition",
+            "description": "Business Statistics in Practice, Eighth Edition provides a modern, practical and unique framework for teaching an introductory course in Business Statistics. The textbook employs realistic examples, continuing case studies and a business improvement theme to teach the material. The Eighth Edition features more concise and lucid explanations, an improved topic flow and a sensible use of the best and most compelling examples. Connect is the only integrated learning system that empowers students by continuously adapting to deliver precisely what they need, when they need it, and how they need it, so that your class time is more engaging and effective.",
+            "category": "Statistics",
+            "condition": "Excellent",
+            "cover": null,
+            "created_date": null,
+            "user_id": null,
+            "author_id": null,
+            "publisher_id": null,
+            "active": true,
+            "created_by": "eboehm",
+            "updated_by": "eboehm",
+            "created_at": "2019-04-13T07:30:12.465Z",
+            "updated_at": "2019-04-13T09:42:55.963Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
+
+
+AUTHOR MODEL
+Description: Update an author record
+Endpoint: http://localhost:3002/api/v1/author/update-author/id/:id
+Method: PUT
+Params: id - 1
+Request Payload:
+{
+"name": "Odam"
+	
+}
+
+RESPONSE
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "author": "Lammle",
+            "user_id": null,
+            "active": true,
+            "created_by": "eboehm",
+            "updated_by": "eboehm",
+            "created_at": "2019-04-13T08:13:05.010Z",
+            "updated_at": "2019-04-13T09:47:05.492Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
+
+Description: Update a publisher record
+Endpoint: http://localhost:3002/api/v1/publisher/update-publisher/id/:id
+Method: PUT
+Params: id - 1
+Request Payload:
+{
+"publisher": "Pearson"
+	
+}
+
+RESPONSE
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "publisher": "Pearson",
+            "country": "US",
+            "user_id": null,
+            "active": true,
+            "created_by": "eboehm",
+            "updated_by": "eboehm",
+            "created_at": "2019-04-13T08:15:58.672Z",
+            "updated_at": "2019-04-13T09:47:53.902Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
+
+Description: Update a student record
+Endpoint: http://localhost:3002/api/v1/student/update-student/id/:id
+Method: PUT
+Params: id - 1
+Request Payload:
+{
+	"university": "UCLA",
+"street": "1419 Westwood Blvd",
+"city": "Los Angeles",
+"zipcode": "90002"
+
+	
+}
+
+RESPONSE
+
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "student_first_name": "John",
+            "student_last_Name": null,
+            "street": "1419 Westwood Blvd",
+            "state": "CA",
+            "city": "Los Angeles",
+            "zipcode": "90002",
+            "university": "UCLA",
+            "user_id": null,
+            "verified_member_id": null,
+            "active": true,
+            "created_by": "eboehm",
+            "updated_by": "eboehm",
+            "created_at": "2019-04-13T08:28:32.771Z",
+            "updated_at": "2019-04-13T09:52:18.732Z",
+            "deleted_at": null,
+            "student_last_name": null
+        },
+        "statusCode": 200
+    }
+}
+
+
+Description: Update a verified_member record
+Endpoint: http://localhost:3002/api/v1/verified_member/update-verified_member/id/:id
+Method: PUT
+Params: id - 1
+Request Payload:
+{
+"member_status": "0"
+
+	
+}
+
+RESPONSE
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "member_status": false,
+            "user_id": null,
+            "active": true,
+            "created_by": "eboehm",
+            "updated_by": "eboehm",
+            "created_at": "2019-04-13T08:31:40.602Z",
+            "updated_at": "2019-04-13T09:53:44.374Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
