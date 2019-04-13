@@ -12,13 +12,13 @@ class Student {
     constructor(norm) {
         this.model = [{
                 id: { type: Number, key: 'primary' },
-                Student_First_Name: { type: String, maxlength: 24 },
-                Student_Last_Name: { type: String, maxlength: 24 },
-                State: { type: String, maxlength: 24 },
-                City: { type: String, maxlength: 24 },
-                University: { type: String, maxlength: 24 },
-                EMail: { type: String, maxlength: 24 },
-                Password: { type: String, maxlength: 24 },
+                student_first_name: { type: String, maxlength: 24 },
+                student_last_Name: { type: String, maxlength: 24 },
+                street: { type: String, maxlength: 24 },
+                state: { type: String, maxlength: 24 },
+                city: { type: String, maxlength: 24 },
+                zipcode: { type: String, maxlength: 24 },
+                university: { type: String, maxlength: 24 },
                 user_id: {
                     type: Number,
                     key: 'foreign',
@@ -26,10 +26,17 @@ class Student {
                     onDelete: 'cascade',
                     onUpdate: 'cascade'
                 },
+                verified_member_id: {
+                    type: Number,
+                    key: 'foreign',
+                    references: { table: 'Verified_member', foreignKey: 'id' },
+                    onDelete: 'cascade',
+                    onUpdate: 'cascade'
+                },
             }, 'A table to store student info',
             [
                 {
-                    route: '/get-all-students',
+                    route: '/get-all-student',
                     method: 'POST',
                     callback: this.getALLStudent,
                     requireToken: true,

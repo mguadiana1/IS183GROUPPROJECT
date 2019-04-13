@@ -8,89 +8,88 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class Publisher {
+class Verified_member {
     constructor(norm) {
         this.model = [{
                 id: { type: Number, key: 'primary' },
-                publisher: { type: String, maxlength: 24 },
-                country: { type: String, maxlength: 24 },
+                member_status: { type: Boolean, maxlength: 1 },
                 user_id: {
                     type: Number,
                     key: 'foreign',
                     references: { table: 'User', foreignKey: 'id' },
                     onDelete: 'cascade',
                     onUpdate: 'cascade'
-                },
-            }, 'A table to store book info',
+                }
+            }, 'A table to store student info',
             [
                 {
-                    route: '/get-all-publisher',
+                    route: '/get-all-verified_member',
                     method: 'POST',
-                    callback: this.getALLPublisher,
+                    callback: this.getALLVerified_member,
                     requireToken: true,
                 },
                 {
-                    route: '/get-publisher-by-id/:id',
+                    route: '/get-verified_member-by-id/:id',
                     method: 'POST',
-                    callback: this.getPublisherById,
+                    callback: this.getVerified_memberById,
                     requireToken: true,
                 },
                 {
-                    route: '/create-publisher',
+                    route: '/create-verified_member',
                     method: 'POST',
-                    callback: this.createPublisher,
+                    callback: this.createVerified_member,
                     requireToken: true,
                 },
                 {
-                    route: '/update-publisher/id/:id',
+                    route: '/update-verified_member/id/:id',
                     method: 'PUT',
-                    callback: this.updatePublisher,
+                    callback: this.updateVerified_member,
                     requireToken: true,
                 },
                 {
                     route: '/delete/id/:id',
                     method: 'DELETE',
-                    callback: this.deletePublisher,
+                    callback: this.deleteVerified_member,
                     requireToken: true,
                 }
             ]];
     }
-    updatePublisher(model) {
+    updateVerified_member(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('reg.body==>', req.body);
-            let publisherCtrl = model.controller;
-            let resp = yield publisherCtrl.update(req, null, null);
+            let Verified_memberCtrl = model.controller;
+            let resp = yield Verified_memberCtrl.update(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
-    deletePublisher(model) {
+    deleteVerified_member(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('reg.body==>', req.body);
-            let publisherCtrl = model.controller;
-            let resp = yield publisherCtrl.remove(req, null, null);
+            let Verified_memberCtrl = model.controller;
+            let resp = yield Verified_memberCtrl.remove(req, null, null);
             console.log('resp from delete', resp);
             res.json({ message: 'Success', resp });
         });
     }
-    createPublisher(model) {
+    createVerified_member(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('reg.body==>', req.body);
-            let publisherCtrl = model.controller;
-            let resp = yield publisherCtrl.insert(req, null, null);
+            let Verified_memberCtrl = model.controller;
+            let resp = yield Verified_memberCtrl.insert(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
-    getALLPublisher(model) {
+    getALLVerified_member(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"]
             };
-            let publisherCtrl = model.controller;
-            let resp = yield publisherCtrl.get(req, null, null);
+            let Verified_memberCtrl = model.controller;
+            let resp = yield Verified_memberCtrl.get(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
-    getPublisherById(model) {
+    getVerified_memberById(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"],
@@ -98,8 +97,8 @@ class Publisher {
                     id: req.params.id
                 }
             };
-            let publisherCtrl = model.controller;
-            let resp = yield publisherCtrl.get(req, null, null);
+            let Verified_memberCtrl = model.controller;
+            let resp = yield Verified_memberCtrl.get(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }
@@ -110,4 +109,4 @@ class Publisher {
         return this._model;
     }
 }
-exports.Publisher = Publisher;
+exports.Verified_member = Verified_member;

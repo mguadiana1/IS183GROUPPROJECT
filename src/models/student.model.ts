@@ -4,14 +4,15 @@ export class Student {
   constructor(norm: any) {
     this.model = [{
       id: { type: Number, key: 'primary' },
-      Student_First_Name: { type: String, maxlength: 24 },
-     Student_Last_Name: { type: String, maxlength: 24 },
-      State: { type: String, maxlength: 24 },
-      City: { type: String, maxlength: 24 },
-      University: { type: String, maxlength: 24 },
-      EMail: { type: String, maxlength: 24 },
-      Password: { type: String, maxlength: 24 },
-      
+      student_first_name: { type: String, maxlength: 24 },
+      student_last_name: { type: String, maxlength: 24 },
+      street: { type: String, maxlength: 24 },
+      state: { type: String, maxlength: 24 },
+      city: { type: String, maxlength: 24 },
+      zipcode: {type: String, maxlength: 24},
+      university: { type: String, maxlength: 24 },
+     
+
       user_id: {
         type: Number,
         key: 'foreign',
@@ -19,10 +20,17 @@ export class Student {
         onDelete: 'cascade',
         onUpdate: 'cascade'
       },
+        verified_member_id: {
+          type: Number,
+          key: 'foreign',
+          references: { table: 'Verified_member', foreignKey: 'id' },
+          onDelete: 'cascade',
+          onUpdate: 'cascade'
+      },
     }, 'A table to store student info',
     [
       {
-        route: '/get-all-students',
+        route: '/get-all-student',
         method: 'POST',
         callback: this.getALLStudent,
         requireToken: true,
@@ -51,35 +59,35 @@ export class Student {
         callback: this.deleteStudent,
         requireToken: true,
       }
-    
+
     ]];
   }
   updateStudent(model: any) {
     return async (req: Request, res: Response, next: NextFunction) => {
-     console.log('reg.body==>', req.body);
+      console.log('reg.body==>', req.body);
       let studentCtrl = model.controller;
       let resp = await studentCtrl.update(req, null, null);
       res.json({ message: 'Success', resp });
     }
   }
-    deleteStudent(model: any) {
-      return async (req: Request, res: Response, next: NextFunction) => {
-       console.log('reg.body==>', req.body);
-        let studentCtrl = model.controller;
-        let resp = await studentCtrl.remove(req, null, null);
-        console.log('resp from delete', resp);
-        res.json({ message: 'Success', resp });
-      }
+  deleteStudent(model: any) {
+    return async (req: Request, res: Response, next: NextFunction) => {
+      console.log('reg.body==>', req.body);
+      let studentCtrl = model.controller;
+      let resp = await studentCtrl.remove(req, null, null);
+      console.log('resp from delete', resp);
+      res.json({ message: 'Success', resp });
+    }
   }
   createStudent(model: any) {
     return async (req: Request, res: Response, next: NextFunction) => {
-     console.log('reg.body==>', req.body);
+      console.log('reg.body==>', req.body);
       let studentCtrl = model.controller;
       let resp = await studentCtrl.insert(req, null, null);
       res.json({ message: 'Success', resp });
     }
   }
-  
+
   getALLStudent(model: any) {
     return async (req: Request, res: Response, next: NextFunction) => {
       req.body = {
@@ -93,13 +101,13 @@ export class Student {
   getStudentById(model: any) {
     return async (req: Request, res: Response, next: NextFunction) => {
       req.body = {
-        
-          get: ["*"],
-          where: {
-            id: req.params.id
-          }
+
+        get: ["*"],
+        where: {
+          id: req.params.id
         }
-      
+      }
+
       let studentCtrl = model.controller;
 
       let resp = await studentCtrl.get(req, null, null);

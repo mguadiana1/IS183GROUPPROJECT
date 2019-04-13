@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
-export declare class publisher {
+export declare class Publisher {
     _model: any;
     constructor(norm: any);
-    updateBook(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
-    deleteBook(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
-    createBook(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
-    getALLBook(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
-    getBookById(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
+    updatePublisher(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
+    deletePublisher(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
+    createPublisher(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
+    getALLPublisher(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
+    getPublisherById(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
     model: any;
 }

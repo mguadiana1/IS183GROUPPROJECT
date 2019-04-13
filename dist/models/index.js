@@ -3,8 +3,7 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(require("./test.model"));
-__export(require("./exam.model"));
+__export(require("./verified_member"));
 __export(require("./book.model"));
 __export(require("./author.model"));
 __export(require("./publisher.model"));

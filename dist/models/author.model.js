@@ -8,11 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class author {
+class Author {
     constructor(norm) {
         this.model = [{
                 id: { type: Number, key: 'primary' },
-                author_name: { type: String, maxlength: 24 },
+                author: { type: String, maxlength: 24 },
                 user_id: {
                     type: Number,
                     key: 'foreign',
@@ -109,4 +109,4 @@ class author {
         return this._model;
     }
 }
-exports.author = author;
+exports.Author = Author;

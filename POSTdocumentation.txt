@@ -1,0 +1,178 @@
+
+BOOK MODEL
+Description: Create a  new book record
+Endpoint: http://localhost:3002/api/v1/book/create-book
+Method: POST
+Params: none
+Request Payload:
+pre-script: var moment = require('moment')
+pm.globals.set("timestamp", moment().format("MM/DD/YYYY"))
+{
+"title": "Business Statistics In Practice",
+"price": "$120.00",
+"isbn": "1259549461",
+"edition": "8th edition",
+"description": "Business Statistics in Practice, Eighth Edition provides a modern, practical and unique framework for teaching an introductory course in Business Statistics. The textbook employs realistic examples, continuing case studies and a business improvement theme to teach the material. The Eighth Edition features more concise and lucid explanations, an improved topic flow and a sensible use of the best and most compelling examples. Connect is the only integrated learning system that empowers students by continuously adapting to deliver precisely what they need, when they need it, and how they need it, so that your class time is more engaging and effective.",
+"category": "Statistics",
+"condition": "Excellent"
+"created_date": "{{timestamp}}"
+}
+
+RESPONSE:
+"message": "Success",
+    "resp": {
+        "data": {
+            "id": 8,
+            "title": "CCNA Routing and Switching Complete Study Guide: Exam 100-105, Exam 200-105, Exam 200-125",
+            "price": "$29.95",
+            "isbn": "1119288282",
+            "edition": "2nd Edition",
+            "description": "CCNA Routing and Switching Complete Study Guide, 2nd Edition is your comprehensive review for the CCNA exams. Written by the leading authority on networking technology, this guide covers 100% of all objectives for the latest ICND1, ICND2, and CCNA Composite exams. Hands-on labs help you gain experience in critical procedures and practices, and the network simulator provides a realistic lab environment so you can practice at your own pace",
+            "category": "Cert Prep",
+            "condition": "great",
+            "cover": null,
+            "created_date": "04/13/2019",
+            "user_id": null,
+            "author_id": null,
+            "publisher_id": null,
+            "active": true,
+            "created_by": "eboehm",
+            "updated_by": null,
+            "created_at": "2019-04-13T08:06:37.329Z",
+            "updated_at": "2019-04-13T08:06:37.329Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
+
+AUTHOR MODEL
+Description: Create a  new author record
+Endpoint: http://localhost:3002/api/v1/author/create-author
+Method: POST
+Params: none
+Request Payload:
+{
+"author": "Lammle"
+}
+
+RESPONSE:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "author": "Lammle",
+            "user_id": null,
+            "active": true,
+            "created_by": "eboehm",
+            "updated_by": null,
+            "created_at": "2019-04-13T08:13:05.010Z",
+            "updated_at": "2019-04-13T08:13:05.010Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
+
+
+PUBLISHER MODEL
+Description: Create a new Publisher record
+Endpoint: http://localhost:3002/api/v1/publisher/create-publisher
+Method: POST
+Params: none
+Request Payload:
+{
+"publisher": "Sybex",
+"country": "US"
+}
+
+RESPONSE:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "publisher": "Sybex",
+            "country": "US",
+            "user_id": null,
+            "active": true,
+            "created_by": "eboehm",
+            "updated_by": null,
+            "created_at": "2019-04-13T08:15:58.672Z",
+            "updated_at": "2019-04-13T08:15:58.672Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
+STUDENT MODEL
+Description: Create a new Student record
+Endpoint: http://localhost:3002/api/v1/publisher/create-publisher
+Method: POST
+Params: none
+Request Payload:
+{
+"student_first_name": "John",
+"student_last_name": "Redier",
+"street": "8 Welch Alley",
+"state": "CA",
+"city": "Fresno",
+"zipcode": "93702",
+"university": "Fresno"
+}
+
+RESPONSE: 
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "student_first_name": "John",
+            "student_last_Name": null,
+            "street": "8 Welch Alley",
+            "state": "CA",
+            "city": "Fresno",
+            "zipcode": "93702",
+            "university": "Fresno",
+            "user_id": null,
+            "verified_member_id": null,
+            "active": true,
+            "created_by": "eboehm",
+            "updated_by": null,
+            "created_at": "2019-04-13T08:28:32.771Z",
+            "updated_at": "2019-04-13T08:28:32.771Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
+
+VERIFIED MEMBER MODEL
+Description: Create a new Verified_member record
+Endpoint: http://localhost:3002/api/v1/verified_member/create-verified_member
+Method: POST
+Params: none
+Request Payload:
+{
+"member_status": "1"
+}
+
+RESPONSE:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "member_status": true,
+            "user_id": null,
+            "active": true,
+            "created_by": "eboehm",
+            "updated_by": null,
+            "created_at": "2019-04-13T08:31:40.602Z",
+            "updated_at": "2019-04-13T08:31:40.602Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}

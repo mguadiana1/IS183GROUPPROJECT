@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-export declare class author {
+export declare class Author {
     _model: any;
     constructor(norm: any);
     updateAuthor(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
