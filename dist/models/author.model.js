@@ -47,7 +47,7 @@ class Author {
                     requireToken: true,
                 },
                 {
-                    route: '/delete/id/:id',
+                    route: '/delete-author/id/:id',
                     method: 'DELETE',
                     callback: this.deleteAuthor,
                     requireToken: true,

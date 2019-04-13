@@ -48,7 +48,7 @@ class Publisher {
                     requireToken: true,
                 },
                 {
-                    route: '/delete/id/:id',
+                    route: '/delete-publisher/id/:id',
                     method: 'DELETE',
                     callback: this.deletePublisher,
                     requireToken: true,

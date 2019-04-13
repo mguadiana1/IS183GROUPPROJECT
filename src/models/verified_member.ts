@@ -11,9 +11,15 @@ export class Verified_member {
                 references: { table: 'User', foreignKey: 'id' },
                 onDelete: 'cascade',
                 onUpdate: 'cascade'
-            }
+            },
 
-
+            student_id: {
+                type: Number,
+                key: 'foreign',
+                references: { table: 'student_member', foreignKey: 'id' },
+                onDelete: 'cascade',
+                onUpdate: 'cascade'
+            },
         }, 'A table to store student info',
         [
             {
@@ -41,7 +47,7 @@ export class Verified_member {
                 requireToken: true,
             },
             {
-                route: '/delete/id/:id',
+                route: '/delete-verified_member/id/:id',
                 method: 'DELETE',
                 callback: this.deleteVerified_member,
                 requireToken: true,

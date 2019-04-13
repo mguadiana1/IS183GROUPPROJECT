@@ -65,7 +65,7 @@ export class Book {
         requireToken: true,
       },
       {
-        route: '/delete/id/:id',
+        route: '/delete-book/id/:id',
         method: 'DELETE',
         callback: this.deleteBook,
         requireToken: true,

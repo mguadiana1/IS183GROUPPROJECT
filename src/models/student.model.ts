@@ -20,13 +20,7 @@ export class Student {
         onDelete: 'cascade',
         onUpdate: 'cascade'
       },
-        verified_member_id: {
-          type: Number,
-          key: 'foreign',
-          references: { table: 'Verified_member', foreignKey: 'id' },
-          onDelete: 'cascade',
-          onUpdate: 'cascade'
-      },
+        
     }, 'A table to store student info',
     [
       {
@@ -54,7 +48,7 @@ export class Student {
         requireToken: true,
       },
       {
-        route: '/delete/id/:id',
+        route: '/delete-student/id/:id',
         method: 'DELETE',
         callback: this.deleteStudent,
         requireToken: true,

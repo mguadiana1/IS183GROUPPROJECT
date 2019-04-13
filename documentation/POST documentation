@@ -108,7 +108,7 @@ RESPONSE:
 }
 STUDENT MODEL
 Description: Create a new Student record
-Endpoint: http://localhost:3002/api/v1/publisher/create-publisher
+Endpoint: http://localhost:3002/api/v1/student/create-student
 Method: POST
 Params: none
 Request Payload:
