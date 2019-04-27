@@ -18,7 +18,7 @@ class Student {
                 state: { type: String, maxlength: 24 },
                 city: { type: String, maxlength: 24 },
                 zipcode: { type: String, maxlength: 24 },
-                university: { type: String, maxlength: 24 },
+                university: { type: String, maxlength: 100 },
                 user_id: {
                     type: Number,
                     key: 'foreign',
@@ -32,19 +32,19 @@ class Student {
                     route: '/get-all-student',
                     method: 'POST',
                     callback: this.getALLStudent,
-                    requireToken: true,
+                    requireToken: false,
                 },
                 {
                     route: '/get-student-by-id/:id',
                     method: 'POST',
                     callback: this.getStudentById,
-                    requireToken: true,
+                    requireToken: false,
                 },
                 {
                     route: '/create-student',
                     method: 'POST',
                     callback: this.createStudent,
-                    requireToken: true,
+                    requireToken: false,
                 },
                 {
                     route: '/update-student/id/:id',
@@ -57,7 +57,7 @@ class Student {
                     method: 'DELETE',
                     callback: this.deleteStudent,
                     requireToken: true,
-                }
+                },
             ]];
     }
     updateStudent(model) {

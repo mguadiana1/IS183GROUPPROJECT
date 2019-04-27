@@ -1,7 +1,7 @@
 [{
   "id": 1,
-  "email": "eboehm@mail.test.com",
-  "username": "eboehm",
+  "email": "eboehm",
+  "username": "eboehm@mail.test.com",
   "password": "1234",
   "super_admin": true,
   "site_admin": true,
