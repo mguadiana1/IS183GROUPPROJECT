@@ -1,0 +1,111 @@
+Verification and documentation for deleting records for the author, book, publisher, student, and verified_member models
+BOOK MODEL
+Description: Delete a book record
+Endpoint: http://localhost:3002/api/v1/book/delete-book/id/:id
+Method: DELETE
+Params: id - 1
+Request Payload: None
+Response: 
+
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "command": "DELETE",
+            "rowCount": 1,
+            "oid": null,
+            "rows": [],
+            "fields": [],
+            "_parsers": [],
+            "RowCtor": null,
+            "rowAsArray": false
+        },
+        "statusCode": 200
+    }
+}
+
+(Verified deleted from db)
+
+AUTHOR MODEL
+Description: Delete an author record
+Endpoint: http://localhost:3002/api/v1/author/delete-author/id/:id
+Method: DELETE
+Params: id - 1
+Request Payload: None
+Response: 
+
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "command": "DELETE",
+            "rowCount": 1,
+            "oid": null,
+            "rows": [],
+            "fields": [],
+            "_parsers": [],
+            "RowCtor": null,
+            "rowAsArray": false
+        },
+        "statusCode": 200
+    }
+}
+(verified deleted from db)
+PUBLISHER MODEL
+Description: Delete a publisher record
+Endpoint: http://localhost:3002/api/v1/publisher/delete-publisher/id/:id
+Method: DELETE
+Params: id - 1
+Request Payload: None
+Response: 
+
+STUDENT MODEL
+Description: Delete a student record
+Endpoint: http://localhost:3002/api/v1/student/delete-student/id/:id
+Method: DELETE
+Params: id - 1
+Request Payload: None
+Response: 
+
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "command": "DELETE",
+            "rowCount": 1,
+            "oid": null,
+            "rows": [],
+            "fields": [],
+            "_parsers": [],
+            "RowCtor": null,
+            "rowAsArray": false
+        },
+        "statusCode": 200
+    }
+}
+(verified deleted from db, did not properly cascade delete on verified_member; need to revise)
+
+BOOK MODEL
+Description: Delete a  record
+Endpoint: http://localhost:3002/api/v1/verified_member/delete-verified_member/id/:id
+Method: DELETE
+Params: id - The id of the book
+Request Payload: None
+Response: 
+
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "command": "DELETE",
+            "rowCount": 1,
+            "oid": null,
+            "rows": [],
+            "fields": [],
+            "_parsers": [],
+            "RowCtor": null,
+            "rowAsArray": false
+        },
+        "statusCode": 200
+    }
+}
