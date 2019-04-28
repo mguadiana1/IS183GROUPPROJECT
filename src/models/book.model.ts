@@ -69,10 +69,28 @@ export class Book {
         method: 'DELETE',
         callback: this.deleteBook,
         requireToken: true,
+      },
+      {
+        route: '/get-book-isbn/:isbn',
+        method: 'POST',
+        callback: this.getBookISBN,
+        requireToken: true,
       }
     
     ]];
   }
+
+  getBookISBN( model: any){
+    return async (req: Request, res: Response, next: NextFunction) => {
+      req.body = {
+        get: ['*']
+      }
+    let bookCtrl = model.controller;
+    let resp = await bookCtrl.get (req, null, null);
+    res.json({message: 'Success', resp});
+    }
+  }
+  
   updateBook(model: any) {
     return async (req: Request, res: Response, next: NextFunction) => {
      console.log('reg.body==>', req.body);
